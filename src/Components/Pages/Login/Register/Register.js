@@ -27,10 +27,11 @@ const Register = () => {
     return (
 
         <Container>
+            {user?.email && <Alert severity="success">User Created successfully!</Alert>}
             <Typography variant="h2" sx={{ mt: 3, textAlign: "center" }}>Register Yourself</Typography>
             <Grid container spacing={2}>
                 <Grid sx={{ mt: 5 }} item xs={12} md={6}>
-                    {user?.email && <Alert severity="success">User Created successfully!</Alert>}
+                    <img style={{ width: '100%' }} src="https://clicksgenie.com/Themes/clicksgenie/landing/images/hero-17-img.png" alt="" />
                 </Grid>
                 <Grid item sx={{ mt: 8, boxShadow: 1, pb: 3 }} xs={12} md={6}>
                     <Typography variant="h5" gutterBottom>Register From</Typography>

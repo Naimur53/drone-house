@@ -63,6 +63,9 @@ const Login = () => {
                     {isLoading && <CircularProgress />}
 
                 </Grid>
+                <Grid item sx={{ mt: 8 }} xs={12} md={6}>
+                    <img style={{ width: '100%' }} src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.png" alt="" />
+                </Grid>
             </Grid>
         </Container>
     );
