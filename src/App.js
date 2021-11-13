@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Dashboard from './Components/Pages/Dashboard/Dashboard/Dashboard';
 import Explore from './Components/Pages/Explore/Explore';
+import Footer from './Components/Pages/Footer/Footer';
 import Home from './Components/Pages/Home/Home';
 import Login from './Components/Pages/Login/Login/Login';
 import Register from './Components/Pages/Login/Register/Register';
@@ -26,6 +27,7 @@ function App() {
             <Route path='/explore'>
               <MainNav></MainNav>
               <Explore></Explore>
+              <Footer></Footer>
             </Route>
             <PrivateRoute path='/dashboard'>
               <Dashboard></Dashboard>

@@ -38,7 +38,7 @@ const Purchase = () => {
             <Grid sx={{ mt: 5 }} container spacing={5}>
                 <Grid item sm={12} md={6}>
                     {
-                        data.name && <ServiceCard data={data}></ServiceCard>
+                        data.name && <ServiceCard myOrder data={data}></ServiceCard>
                     }
                 </Grid>
                 <Grid item sm={12} md={6}>
