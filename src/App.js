@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Dashboard from './Components/Pages/Dashboard/Dashboard/Dashboard';
@@ -13,6 +14,7 @@ import MainNav from './Components/Shared/MainNav/MainNav';
 import AuthProvider from './Context/AuthProvider/AuthProvider';
 
 function App() {
+
   return (
     <div className="App">
       <AuthProvider>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MainNav from '../../Shared/MainNav/MainNav';
 import Services from '../Services/Services';
 import Reviews from '../Reviews/Reviews'
@@ -7,7 +7,13 @@ import BottomBanner from '../BottomBanner/BottomBanner';
 import Footer from '../Footer/Footer';
 import DroneUse from '../DroneUse/DroneUse';
 import InterestingData from '../InterestingData/InterestingData';
+import { useLocation } from 'react-router';
 const Home = () => {
+    const pathname = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
     return (
         <>
             <MainNav></MainNav>

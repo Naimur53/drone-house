@@ -1,0 +1,16 @@
+.expo-wrapper{
+    height: 80vh; 
+    background-image: url('http://squadrone.bold-themes.com/main-demo/wp-content/uploads/sites/2/2018/01/inner_image_02.jpg');
+    background-size: cover; 
+}
+.expo-wrapper::before{
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.292);
+
+}

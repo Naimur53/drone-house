@@ -1,6 +1,6 @@
 .main_title {  
-    color: #ffffff;
-    background: -webkit-linear-gradient(left,  rgb(0, 0, 0),#10DDC2 ,  #ffffff);
+    color: #44ffd3;
+    background: -webkit-linear-gradient(left,  rgb(0, 0, 0),orange ,  #ffffff);
     background-size: 1600px 200px;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
