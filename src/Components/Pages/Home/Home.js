@@ -5,12 +5,16 @@ import Reviews from '../Reviews/Reviews'
 import TopBanner from '../TopBanner/TopBanner';
 import BottomBanner from '../BottomBanner/BottomBanner';
 import Footer from '../Footer/Footer';
+import DroneUse from '../DroneUse/DroneUse';
+import InterestingData from '../InterestingData/InterestingData';
 const Home = () => {
     return (
         <>
             <MainNav></MainNav>
             <TopBanner></TopBanner>
+            <DroneUse></DroneUse>
             <Services></Services>
+            <InterestingData></InterestingData>
             <Reviews></Reviews>
             <BottomBanner></BottomBanner>
             <Footer></Footer>

@@ -8,44 +8,51 @@ import Typography from '@mui/material/Typography';
 import { Grid, Link } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import { Box } from '@mui/system';
+import './ServiceCard.css'
 const ServiceCard = props => {
     const { name, img, description, price, _id } = props.data;
     return (
         <Grid item xs={12} md={props.layout}>
-            <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly' }} >
-                <CardMedia
-                    sx={{ width: '100%' }}
-                    component="img"
-                    alt="green iguana"
-                    image={img}
-                />
+            <Card className='card-main-wrap' sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }} >
+                <div className='relative '>
+                    <CardMedia
+                        sx={{ width: '100%', }}
+                        component="img"
+                        alt="green iguana"
+                        image={img}
+                    />
+                    <div className="absolute card-style top-0 left-0 bottom-0 right-0 z-10"></div>
+
+
+                </div>
                 <Box sx={{ mt: 4 }}>
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
+                    <CardContent className=' '>
+                        <Typography className=' font-poppins' gutterBottom variant="h6" component="div">
                             {name}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography variant="body2" className='  font-poppins'  >
                             {
-                                props.home ? description?.split(' ').slice(0, 10).toString().replace(/,/g, ' ') : description
+                                description?.split(' ').slice(0, 10).toString().replace(/,/g, ' ')
                             }
                         </Typography>
-                        <Typography variant="h5" sx={{ color: 'warning.main' }}>
+
+                    </CardContent>
+                    <CardActions className='z-30 relative justify-between'>
+                        <Typography variant="h5" className='font-poppins'>
                             ${price}
                         </Typography>
-                    </CardContent>
-                    <CardActions>
-
                         {
                             props.admin ? <Button onClick={() => props.handleDelete(_id)} variant='outlined' color='error'>Delete</Button> : <NavLink style={{ textDecoration: 'none', color: 'error.main' }} to={`/service/${_id}`}  >
                                 {
-                                    !props.myOrder && <Button variant='outlined' color='info'>Purchase</Button>
+                                    !props.myOrder && <Button className='hover:border-gray-400 hover:text-gray-500' sx={{ color: 'black', borderColor: 'black' }} variant='outlined' color='info'>Purchase</Button>
                                 }
                             </NavLink>
                         }
+
                     </CardActions>
                 </Box>
             </Card>
-        </Grid>
+        </Grid >
     );
 };
 

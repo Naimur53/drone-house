@@ -5,7 +5,7 @@ import ServiceCard from '../ServiceCard/ServiceCard';
 import Grid3x3Icon from '@mui/icons-material/Grid3x3';
 import Grid4x4Icon from '@mui/icons-material/Grid4x4';
 const Explore = props => {
-    const [layout, setLayout] = useState(4);
+    const [layout, setLayout] = useState(3);
     const [drones, setDrones] = useState([]);
     const handleClick = () => {
         if (4 === layout) {

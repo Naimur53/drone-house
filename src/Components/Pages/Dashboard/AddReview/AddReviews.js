@@ -13,6 +13,7 @@ const AddReviews = () => {
 
     const onSubmit = reviewInfo => {
         reviewInfo['img'] = user.photoURL;
+        reviewInfo.time = new Date().toLocaleDateString()
         reviewInfo['ratingValue'] = ratingValue;
         console.log(reviewInfo);
         axios.post('https://enigmatic-headland-64217.herokuapp.com/reviews', reviewInfo)
@@ -44,7 +45,8 @@ const AddReviews = () => {
                     sx={{ width: '75%', m: 1 }}
                     multiline
                     rows={4}
-                    label="Write your comment here"
+                    inputProps={{ maxLength: 200 }}
+                    label="Write your review in 200 word here"
                     {...register("comment", { required: true })}
                     variant="standard" />
                 <br />

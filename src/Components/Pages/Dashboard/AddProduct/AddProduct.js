@@ -57,7 +57,7 @@ const AddProduct = () => {
                             placeholder='Enter item img here'
                             {...register("img", { required: true })}
                             variant="standard" />
-                        <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Add Review</Button>
+                        <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Add Product</Button>
                     </form>
                 </Grid>
 

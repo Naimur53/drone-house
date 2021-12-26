@@ -1,0 +1,47 @@
+.banner-container{
+    background-image: url('../../../media/Capture.jpg'); 
+    background-size: cover;
+}
+.img-container{
+    background:url('../../../media/drone.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation-name: running ;
+    background-size:30vw;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    transition: .3s;
+    animation-fill-mode: forwards;
+    mix-blend-mode: difference;
+}
+@keyframes running {
+    25%{
+        background-position:top ;
+    }
+    50%{
+        background-position:left ;
+    }
+    75%{
+        background-position:right ;
+    }
+    100%{
+        background-position:bottom ;
+    }
+}
+.transparent-style{ 
+    font-weight: bold;
+    -webkit-text-stroke-width: 1px;
+    color: transparent;
+    -webkit-text-stroke-color: rgb(255, 255, 255); 
+} 
+@media only screen and (max-width: 600px) { 
+    .img-container{
+        background:url('../../../media/drone.webp');
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation-name: none ;
+        background-size:contain; 
+        background-position: center;
+    }
+  }

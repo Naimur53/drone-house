@@ -1,0 +1,19 @@
+.main_title {  
+    color: #ffffff;
+    background: -webkit-linear-gradient(left,  rgb(0, 0, 0),#10DDC2 ,  #ffffff);
+    background-size: 1600px 200px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation-duration: 3s;
+    animation-name: animationgradienttitle;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+  }
+  @keyframes animationgradienttitle {
+    0% {
+        background-position: 0 1600px;
+    }
+    100% {
+        background-position: 1600px 0;
+    }
+  }

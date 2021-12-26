@@ -1,28 +1,26 @@
-import { Container, Grid, Typography } from '@mui/material';
+import { Container, Grid, Typography, Button } from '@mui/material';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const BottomBanner = () => {
     return (
         <Container>
-            <Typography sx={{ textAlign: 'center', my: 5 }} variant='h3'>Know About us</Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
-                    <img style={{ width: '100%' }} src="https://cdn.dribbble.com/users/1241107/screenshots/3303072/boy-01__________________-01.jpg" alt="" />
+                    <img style={{ width: '100%' }} src="http://squadrone.bold-themes.com/main-demo/wp-content/uploads/sites/2/2017/12/team_member_01.jpg" alt="" />
 
                 </Grid>
-                <Grid item xs={12} md={6}>
-                    <Typography variant="h3" component="div" gutterBottom>
-                        We are the best drone seller in the world
-                    </Typography>
-                    <Typography variant="body1" component="div" gutterBottom>
-                        Drones are more formally known as unmanned aerial vehicles (UAVs) or unmanned aircraft systems (UASes). Essentially, a drone is a flying robot that can be remotely controlled or fly autonomously through software-controlled flight plans in their embedded systems, working in conjunction with onboard sensors and GPS
-                    </Typography>
-                    <Typography variant="h6" component="div" gutterBottom>
-                        Buy Your Product now
-                    </Typography>
-
+                <Grid sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} item xs={12} md={6}>
+                    <div>
+                        <h2 className='text-5xl mb-5 tracking-wide font-poppins  text-gray-700'>
+                            We Are Licenced Drone Pilots & Provide Best Drone In The World
+                        </h2>
+                        <h3 className='mb-5 text-gray-600 font-poppins text-lg'>
+                            Drones are more formally known as unmanned aerial vehicles (UAVs) or unmanned aircraft systems (UASes). Essentially, a drone is a flying robot that can be remotely controlled
+                        </h3>
+                        <Button component={NavLink} to='/explore' className='hover:border-gray-400 hover:text-gray-500' sx={{ color: 'orange', borderColor: 'orange' }} variant='outlined'>Let's explore more</Button>
+                    </div>
                 </Grid>
-
             </Grid>
         </Container>
     );
