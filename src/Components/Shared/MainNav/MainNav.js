@@ -24,7 +24,7 @@ const MainNav = () => {
     };
     const [colorChange, setColorChange] = useState(false);
     const changeNavbarColor = () => {
-        if (window.scrollY >= 600) {
+        if (window.scrollY >= 500) {
             setColorChange(true);
         }
         else {

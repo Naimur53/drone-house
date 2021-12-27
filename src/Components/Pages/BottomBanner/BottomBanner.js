@@ -7,7 +7,7 @@ const BottomBanner = () => {
         <Container>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
-                    <img style={{ width: '100%' }} src="http://squadrone.bold-themes.com/main-demo/wp-content/uploads/sites/2/2017/12/team_member_01.jpg" alt="" />
+                    <img style={{ width: '100%' }} src="https://i.ibb.co/2NRDgnG/man.jpg" alt="" />
 
                 </Grid>
                 <Grid sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} item xs={12} md={6}>
