@@ -36,6 +36,7 @@ import AdminRoute from '../../../AdminRoute/AdminRoute';
 import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 import ManageProducts from '../ManageProducts/ManageProducts';
 import AddProduct from '../AddProduct/AddProduct';
+import Pay from '../Pay/Pay';
 const drawerWidth = 240;
 
 function Dashboard(props) {
@@ -187,7 +188,7 @@ function Dashboard(props) {
                         }
                     </Route>
                     <Route path={`${path}/pay`}>
-                        Paying method coming soon
+                        <Pay></Pay>
                     </Route>
                     <Route path={`${path}/myorders`}>
                         <MyOrders></MyOrders>

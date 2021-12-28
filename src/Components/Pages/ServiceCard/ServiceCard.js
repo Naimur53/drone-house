@@ -44,7 +44,7 @@ const ServiceCard = props => {
                         {
                             props.admin ? <Button onClick={() => props.handleDelete(_id)} variant='outlined' color='error'>Delete</Button> : <NavLink style={{ textDecoration: 'none', color: 'error.main' }} to={`/service/${_id}`}  >
                                 {
-                                    !props.myOrder && <Button className='hover:border-gray-400 hover:text-gray-500' sx={{ color: 'black', borderColor: 'black' }} variant='outlined' color='info'>Purchase</Button>
+                                    !props.myOrder && <Button className=' hover:text-gray-500' sx={{ color: 'black', borderColor: 'black', '&:hover': { borderColor: 'gray' } }} variant='outlined' color='info'>Purchase</Button>
                                 }
                             </NavLink>
                         }

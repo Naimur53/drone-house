@@ -6,7 +6,7 @@ import { Typewriter, useTypewriter, Cursor } from 'react-simple-typewriter'
 const ExpoBanner = () => {
     return (
         <div className='expo-wrapper relative'>
-            <Container className='h-full flex  items-center z-10 relative'>
+            <Container sx={{ display: 'flex ' }} className='h-full items-center z-10 relative'>
                 <div className='pt-10 '>
                     <h2 className='text-white text-4xl font-poppins '><span className='mr-4'>We Have World</span>
                         <span className='text-yellow-400 '>

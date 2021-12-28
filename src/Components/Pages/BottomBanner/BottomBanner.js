@@ -18,7 +18,7 @@ const BottomBanner = () => {
                         <h3 className='mb-5 text-gray-600 font-poppins text-lg'>
                             Drones are more formally known as unmanned aerial vehicles (UAVs) or unmanned aircraft systems (UASes). Essentially, a drone is a flying robot that can be remotely controlled
                         </h3>
-                        <Button component={NavLink} to='/explore' className='hover:border-gray-400 hover:text-gray-500' sx={{ color: 'orange', borderColor: 'orange' }} variant='outlined'>Let's explore more</Button>
+                        <Button component={NavLink} to='/explore' className='hover:border-gray-400 hover:text-gray-500' sx={{ color: 'orange', borderColor: 'orange', '&:hover': { borderColor: 'gray' } }} variant='outlined'>Let's explore more</Button>
                     </div>
                 </Grid>
             </Grid>
