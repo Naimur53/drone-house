@@ -27,7 +27,7 @@ const Pay = () => {
             })
     }, []);
     useEffect(() => {
-        axios.post('http://localhost:5000/create-payment-intent', { price })
+        axios.post('https://enigmatic-headland-64217.herokuapp.com/create-payment-intent', { price })
             .then(res => setClientSecret(res?.data?.clientSecret))
     }, [price])
     console.log(clientSecret);
