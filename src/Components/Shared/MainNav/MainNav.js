@@ -11,7 +11,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useState, useEffect } from 'react';
 import './MainNav.css'
-import { borderBottom } from '@mui/system';
 const MainNav = () => {
     const { pathname } = useLocation();
 
@@ -35,18 +34,18 @@ const MainNav = () => {
         }
     };
     useEffect(() => {
-        console.log(pathname);
+
         if (pathname === '/home' || pathname === '/' || pathname === '/explore') {
             window.addEventListener('scroll', changeNavbarColor);
 
         }
         else {
-            console.log(!pathname === '/home' && !pathname === '/' && !pathname === '/explore');
             setColorChange(true)
-
+            window.removeEventListener('scroll', changeNavbarColor);
         }
 
     }, [pathname])
+
     const noActive = { textDecoration: 'none', color: colorChange ? 'gray' : 'white', borderRadius: '0', transition: 'color .3s' }
     const activeStyle = { color: colorChange ? 'black' : 'orange' }
     const navStyle = { backgroundColor: colorChange ? 'white' : 'transparent', transition: '.3s', boxShadow: colorChange ? ' 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)' : 'none' }

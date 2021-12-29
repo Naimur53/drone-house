@@ -1,4 +1,4 @@
-import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
+import { Alert, Button, CircularProgress, Container, Grid, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router';
 import { NavLink } from 'react-router-dom';
@@ -6,7 +6,7 @@ import useAuth from '../../../../hooks/useAuth';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
-    const { user, loginUser, signInWithGoogle, isLoading, authError } = useAuth();
+    const { loginUser, signInWithGoogle, isLoading, authError } = useAuth();
 
     const location = useLocation();
     const history = useHistory();
@@ -31,7 +31,6 @@ const Login = () => {
                     <form className='text-center' onSubmit={handleLoginSubmit}>
                         <TextField
                             sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
                             label="Your Email"
                             name="email"
                             type="email"
@@ -40,9 +39,9 @@ const Login = () => {
                             variant="standard" />
                         <TextField
                             sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
                             label="Your Password"
                             type="password"
+                            autoComplete='true'
                             name="password"
                             onChange={handleOnChange}
                             required
@@ -59,6 +58,10 @@ const Login = () => {
                     </form>
                     <div className="text-center">
                         <Button onClick={() => signInWithGoogle(location, history)} variant="contained">Google Sign In</Button>
+                        <br />
+                        {
+                            isLoading && <CircularProgress></CircularProgress>
+                        }
                     </div>
                     {authError && <Alert severity="error">{authError}</Alert>}
                 </Grid>

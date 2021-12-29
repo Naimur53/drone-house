@@ -30,19 +30,17 @@ const useFirebase = () => {
                     displayName: name,
                     photoURL: 'https://cdn.iconscout.com/icon/free/png-256/laptop-user-1-1179329.png'
 
-                }).then(res => { console.log(res, 'update') }).catch((error) => {
+                }).then().catch((error) => {
                 });
                 history.replace('/');
             })
             .catch((error) => {
                 setAuthError(error.message);
-                console.log(error);
             })
             .finally(() => setIsLoading(false));
     }
     const saveUser = data => {
         axios.post('https://enigmatic-headland-64217.herokuapp.com/user', data)
-            .then(res => console.log(res))
     }
 
     const loginUser = (email, password, location, history) => {
@@ -64,7 +62,6 @@ const useFirebase = () => {
         const url = location?.state?.from || '/';
         signInWithPopup(auth, googleProvider)
             .then((result) => {
-                const user = result.user;
                 setAuthError('');
                 history.replace(url);
 
@@ -84,7 +81,6 @@ const useFirebase = () => {
             } else {
                 setUser({})
             }
-            console.log('f', user);
 
             setIsLoading(false);
         });
@@ -104,7 +100,6 @@ const useFirebase = () => {
                 setAdmin(res.data.admin);
             })
     }, [user.email])
-    console.log(admin);
 
     return {
         user,

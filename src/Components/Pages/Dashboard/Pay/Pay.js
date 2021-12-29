@@ -4,7 +4,7 @@ import useAuth from '../../../../hooks/useAuth';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js'
 import CheckoutForm from '../../CheckoutFrom/CheckoutForm';
-import { CircularProgress, Grid } from '@mui/material'
+import { CircularProgress } from '@mui/material'
 
 const stripePromise = loadStripe('pk_test_51JwkKOBsuBLp8xZKznfcyJNwcyfiAgZAFCaqTt2g34rN3vth0ta6dtS1GiEu9b4gD3z6eTwucmPA9ddrzPVCltgL00hLMB2nJm')
 const Pay = () => {
@@ -12,15 +12,12 @@ const Pay = () => {
     const [load, setLoad] = useState(true);
     const [price, setPrice] = useState(0);
     const [clientSecret, setClientSecret] = useState('');
-    console.log(user);
     useEffect(() => {
         axios.get(`https://enigmatic-headland-64217.herokuapp.com/orders?email=${user.email}`)
             .then(result => {
                 let totalPrice = 0;
-                console.log(result.data);
                 result?.data.filter(element => element.isPaid === 'unPaid').forEach(element => {
                     totalPrice += element.total;
-                    console.log(totalPrice);
                 });
                 setLoad(false)
                 setPrice(totalPrice)
@@ -30,7 +27,6 @@ const Pay = () => {
         axios.post('https://enigmatic-headland-64217.herokuapp.com/create-payment-intent', { price })
             .then(res => setClientSecret(res?.data?.clientSecret))
     }, [price])
-    console.log(clientSecret);
     if (load) {
         return (
             <div className='flex justify-center'>

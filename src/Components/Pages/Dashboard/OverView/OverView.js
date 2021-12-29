@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, RadialBarChart, RadialBar } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { Grid } from '@mui/material'
 import axios from 'axios';
 import { createData, renderCustomizedLabel } from '../../../../utilities/dataAnalize';
@@ -9,6 +9,7 @@ const OverView = () => {
     const [monthOrders, setMonthORders] = useState([]);
     const [monthOrdersInfo, setMonthOrdersInfo] = useState([]);
     useEffect(() => {
+        window.scrollTo(0, 0);
         axios.get('https://enigmatic-headland-64217.herokuapp.com/orders')
             .then(res => setData(res.data));
     }, []);
@@ -22,29 +23,31 @@ const OverView = () => {
     const COLORS = ['#91125d', '#663399cc', '#494949'];
     return (
         <div>
-            <Grid className='justify-center ' container spacing={4}>
-                <Grid item sm={12}>
-                    <div className='mb-10' style={{ width: '100%', height: 300 }}>
-                        <ResponsiveContainer>
-                            <LineChart data={monthOrders}
-                            >
-                                <CartesianGrid strokeDasharray="5 5" />
-                                <XAxis dataKey="date" />
-                                <YAxis />
-                                <Tooltip />
-                                <Legend height={1} />
-                                <Line type="monotone" dataKey="total_orders" stroke="#8884d8" />
-                                <Line type="monotone" dataKey="total_items" stroke="#82ca9d" />
-                            </LineChart>
-                        </ResponsiveContainer>
+            <Grid className='justify-center ' container spacing={2}>
+                <Grid item xs={12} md={12}>
+                    <div className="shadow-lg pb-5 rounded-lg">
+                        <div className='mb-10'  >
+                            <ResponsiveContainer width="100%" height={300}>
+                                <LineChart data={monthOrders}
+                                >
+                                    <CartesianGrid strokeDasharray="5 5" />
+                                    <XAxis dataKey="date" />
+                                    <YAxis />
+                                    <Tooltip />
+                                    <Legend height={1} />
+                                    <Line type="monotone" dataKey="total_orders" stroke="#8884d8" />
+                                    <Line type="monotone" dataKey="total_items" stroke="#82ca9d" />
+                                </LineChart>
+                            </ResponsiveContainer>
+                        </div>
                     </div>
                 </Grid>
 
-                <Grid item sm={12} md={6}>
+                <Grid item xs={12} md={6}>
                     <h2 className='text-center text-lg font-poppins '>Orders Information</h2>
-                    <div className="shadow-lg pb-5 rounded-lg">
-                        <div style={{ width: '100%', height: "300px" }}>
-                            <ResponsiveContainer >
+                    <div className="shadow-lg pb-5 rounded-lg  ">
+                        <div className='mb-10'  >
+                            <ResponsiveContainer width="100%" height={300}>
                                 <PieChart >
                                     <Pie
                                         data={monthOrdersInfo}
@@ -67,7 +70,7 @@ const OverView = () => {
                         </div>
                     </div>
                 </Grid>
-                <Grid item sm={12} md={6}>
+                <Grid item xs={12} md={6}>
                     <h2 className='text-center text-lg font-poppins '>Recent Orders</h2>
                     <div className='shadow-lg'>
                         <ManageAllOrders preview></ManageAllOrders>

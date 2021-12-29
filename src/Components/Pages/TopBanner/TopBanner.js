@@ -1,4 +1,4 @@
-import { Container, Grid, Typography, Button } from '@mui/material';
+import { Container, Grid, Button } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 import './TopBanner.css'

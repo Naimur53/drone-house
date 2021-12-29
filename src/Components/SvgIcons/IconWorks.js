@@ -3,7 +3,7 @@ import React from 'react';
 const IconWorks = (props) => {
     return (
         <svg version="1.1" className={props.className} id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-            viewBox="0 0 60 60" style={{ enableBackground: "new 0 0 60 60;" }} xmlSpace="preserve">
+            viewBox="0 0 60 60" style={{ enableBackground: "new 0 0 60 60" }} xmlSpace="preserve">
             <path d="M55.014,45.389l-9.553-4.776C44.56,40.162,44,39.256,44,38.248v-3.381c0.229-0.28,0.47-0.599,0.719-0.951
 	c1.239-1.75,2.232-3.698,2.954-5.799C49.084,27.47,50,26.075,50,24.5v-4c0-0.963-0.36-1.896-1-2.625v-5.319
 	c0.056-0.55,0.276-3.824-2.092-6.525C44.854,3.688,41.521,2.5,37,2.5s-7.854,1.188-9.908,3.53c-1.435,1.637-1.918,3.481-2.064,4.805

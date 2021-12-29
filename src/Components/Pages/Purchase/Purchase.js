@@ -44,8 +44,6 @@ const Purchase = () => {
         orderInfo['total'] = increase;
         orderInfo['quantity'] = parseInt(orderInfo.quantity);
 
-        console.log(orderInfo);
-
         axios.post('https://enigmatic-headland-64217.herokuapp.com/purchase', orderInfo)
             .then(res => {
                 if (res.data?.insertedId) {

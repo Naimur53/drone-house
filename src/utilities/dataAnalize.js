@@ -6,7 +6,6 @@ export const createData = (data) => {
     const month = dt.getMonth() + 1;
     const year = dt.getFullYear();
     const daysInMonth = new Date(year, month, 0).getDate();
-    console.log('year', year);
     for (let i = 1; i <= daysInMonth; i++) {
         const oneDayData = data.filter(element => `${month}/${i}/${year}` === element.date)
         let totalItems = 0;
@@ -42,7 +41,6 @@ export const createData = (data) => {
         { name: 'UnPaid', value: unpaid },
         { name: 'pending', value: pending }
     ]
-    console.log(pieData);
     return { lineData, pieData };
 
 }
@@ -54,7 +52,6 @@ export const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadi
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
-    console.log({ cx, cy, midAngle, innerRadius, outerRadius, percent, index });
     return (
         <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
             {`${(percent * 100).toFixed(0)}%`}

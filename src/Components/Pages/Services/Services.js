@@ -1,10 +1,9 @@
-import { Container, Grid, Button, Typography, Skeleton } from '@mui/material';
+import { Container, Grid, Button, Skeleton } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import ServiceCard from '../ServiceCard/ServiceCard';
 import Grid3x3Icon from '@mui/icons-material/Grid3x3';
 import Grid4x4Icon from '@mui/icons-material/Grid4x4';
-import { Box } from '@mui/system';
 
 const Services = props => {
     const [layout, setLayout] = useState(3);
@@ -20,7 +19,6 @@ const Services = props => {
     useEffect(() => {
         axios.get('https://enigmatic-headland-64217.herokuapp.com/drones?limit=8')
             .then(result => setDrones(result.data));
-        console.log(drones);
     }, []);
     return (
         <Container>

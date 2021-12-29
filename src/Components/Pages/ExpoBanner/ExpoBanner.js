@@ -1,7 +1,7 @@
 import { Container } from '@mui/material';
 import React from 'react';
 import './ExpoBanner.css'
-import { Typewriter, useTypewriter, Cursor } from 'react-simple-typewriter'
+import { Typewriter, } from 'react-simple-typewriter'
 
 const ExpoBanner = () => {
     return (

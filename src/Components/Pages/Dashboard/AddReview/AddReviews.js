@@ -1,4 +1,4 @@
-import { TextField, Typography, Button, Rating, Alert } from '@mui/material';
+import { TextField, Button, Rating, } from '@mui/material';
 import { Box, Grid } from '@mui/material';
 import axios from 'axios';
 import React, { useState } from 'react';
@@ -15,10 +15,8 @@ const AddReviews = () => {
         reviewInfo['img'] = user.photoURL;
         reviewInfo.time = new Date().toLocaleDateString()
         reviewInfo['ratingValue'] = ratingValue;
-        console.log(reviewInfo);
         axios.post('https://enigmatic-headland-64217.herokuapp.com/reviews', reviewInfo)
             .then(res => {
-                console.log(res);
                 if (res.data?.insertedId) {
                     setUpdate(true);
                 }

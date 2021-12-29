@@ -1,10 +1,9 @@
 
-import { Avatar, Card, CardContent, Grid, Rating, Typography } from '@mui/material';
+import { Avatar, Card, CardContent, Rating, } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 const ReviewCard = props => {
     const { img, name, comment, ratingValue, time } = props.data;
-    console.log(time);
     return (
         <Card sx={{ minWidth: 275, boxShadow: 0, py: 10, userSelect: 'none' }}>
             <CardContent sx={{ boxShadow: 2 }}>

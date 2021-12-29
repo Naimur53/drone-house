@@ -10,7 +10,7 @@ const MyOrders = () => {
     useEffect(() => {
         axios.get(`https://enigmatic-headland-64217.herokuapp.com/orders?email=${user.email}`)
             .then(result => setOrders(result.data))
-    }, []);
+    }, [user.email]);
     console.log(orders);
     const handleDelete = id => {
         console.log(id);

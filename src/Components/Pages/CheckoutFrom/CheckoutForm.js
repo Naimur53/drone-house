@@ -42,7 +42,6 @@ const CheckoutForm = ({ price, clientSecret }) => {
             setPayStatus('processing');
 
         }
-        console.log(user);
         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
             clientSecret,
             {
@@ -61,7 +60,6 @@ const CheckoutForm = ({ price, clientSecret }) => {
         }
         else {
             success('Success fully payment done')
-            console.log('[PaymentMethod]', paymentMethod);
             setPayStatus("success");
             axios.put(`https://enigmatic-headland-64217.herokuapp.com/payment/${user.email}`, {
                 amount: paymentIntent.amount,

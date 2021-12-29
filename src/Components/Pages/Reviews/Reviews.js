@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Container, Skeleton, Typography } from '@mui/material';
+import { Container, Skeleton } from '@mui/material';
 import ReviewCard from '../ReviewCard/ReviewCard';
 import SwiperCore, {
     EffectCoverflow, Autoplay, Pagination, Navigation

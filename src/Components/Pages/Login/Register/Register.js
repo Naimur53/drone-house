@@ -1,4 +1,4 @@
-import { Container, Typography, TextField, Button, CircularProgress, Alert, Grid, Box } from '@mui/material';
+import { Container, TextField, Button, CircularProgress, Alert, Grid, Box } from '@mui/material';
 import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom'
 import useAuth from '../../../../hooks/useAuth';
@@ -15,7 +15,6 @@ const Register = () => {
         newRegisterData[field] = value;
         setRegisterData(newRegisterData);
     }
-    console.log(user);
     const handleRegisterSubmit = e => {
         if (registerData.password !== registerData.password2) {
             alert('Your password did not match');
@@ -56,6 +55,7 @@ const Register = () => {
                                 label="Your Password"
                                 type="password"
                                 name="password"
+                                autoComplete="true"
                                 required
                                 onBlur={handleOnBlur}
                                 variant="standard" />
@@ -64,6 +64,7 @@ const Register = () => {
                                 label="ReType Your Password"
                                 type="password"
                                 name="password2"
+                                autoComplete="true"
                                 required
                                 onBlur={handleOnBlur}
                                 variant="standard" />

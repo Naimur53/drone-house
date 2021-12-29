@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 const MakeAdmin = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const [success, setSuccess] = useState(false);
     const onSubmit = adminEmail => {
         console.log(adminEmail);

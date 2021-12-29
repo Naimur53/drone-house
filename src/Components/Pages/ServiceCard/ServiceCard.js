@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Grid, Link } from '@mui/material';
+import { Grid } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import { Box } from '@mui/system';
 import './ServiceCard.css'

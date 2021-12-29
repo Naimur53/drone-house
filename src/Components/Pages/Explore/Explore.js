@@ -1,19 +1,14 @@
-import { Container, Grid, Button, Typography, Skeleton } from '@mui/material';
+import { Container, Grid, Button, Skeleton } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import ServiceCard from '../ServiceCard/ServiceCard';
 import Grid3x3Icon from '@mui/icons-material/Grid3x3';
 import Grid4x4Icon from '@mui/icons-material/Grid4x4';
 import ExpoBanner from '../ExpoBanner/ExpoBanner';
-import { useLocation } from 'react-router';
 const Explore = props => {
     const [layout, setLayout] = useState(3);
     const [drones, setDrones] = useState([]);
-    const pathname = useLocation();
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [pathname]);
     const handleClick = () => {
         if (4 === layout) {
             setLayout(3);
@@ -23,9 +18,9 @@ const Explore = props => {
         }
     }
     useEffect(() => {
+        window.scrollTo(0, 0);
         axios.get('https://enigmatic-headland-64217.herokuapp.com/drones')
             .then(result => setDrones(result.data));
-        console.log(drones);
     }, []);
     return (
         <>

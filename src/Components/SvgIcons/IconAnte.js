@@ -3,7 +3,7 @@ import React from 'react';
 const IconAnte = (props) => {
     return (
         <svg version="1.1" className={props.className} id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-            viewBox="0 0 487 487" style={{ enableBackground: 'new 0 0 487 487;' }} xmlSpace="preserve">
+            viewBox="0 0 487 487" style={{ enableBackground: 'new 0 0 487 487' }} xmlSpace="preserve">
             <g>
                 <path d="M299.5,432h-25.409c-2.784-11.354-11.737-20.306-23.091-23.091V206.091c13.759-3.374,24-15.806,24-30.591
 		c0-17.369-14.131-31.5-31.5-31.5S212,158.131,212,175.5c0,14.785,10.241,27.216,24,30.591v202.819
