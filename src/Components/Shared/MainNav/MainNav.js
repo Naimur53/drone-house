@@ -47,6 +47,7 @@ const MainNav = () => {
     }, [pathname])
 
     const noActive = { textDecoration: 'none', color: colorChange ? 'gray' : 'white', borderRadius: '0', transition: 'color .3s' }
+    const noActive2 = { textDecoration: 'none', color: 'gray', borderRadius: '0', transition: 'color .3s' }
     const activeStyle = { color: colorChange ? 'black' : 'orange' }
     const navStyle = { backgroundColor: colorChange ? 'white' : 'transparent', transition: '.3s', boxShadow: colorChange ? ' 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)' : 'none' }
     return (
@@ -114,19 +115,19 @@ const MainNav = () => {
                         }}
                     >
                         <MenuItem onClick={handleCloseNavMenu}>
-                            <Button component={NavLink} style={noActive} activeStyle={activeStyle} to='/home' >Home</Button>
+                            <Button component={NavLink} style={noActive2} activeStyle={activeStyle} to='/home' >Home</Button>
                         </MenuItem>
                         <MenuItem onClick={handleCloseNavMenu}>
-                            <Button component={NavLink} style={noActive} activeStyle={activeStyle} to='/explore' >Explore</Button>
+                            <Button component={NavLink} style={noActive2} activeStyle={activeStyle} to='/explore' >Explore</Button>
                         </MenuItem>
                         {
                             user?.email ?
                                 <Box className='flex'>
                                     <MenuItem onClick={handleCloseNavMenu}>
-                                        <Button component={NavLink} style={noActive} activeStyle={activeStyle} to='/dashboard' >Dashboard</Button>
+                                        <Button component={NavLink} style={noActive2} activeStyle={activeStyle} to='/dashboard' >Dashboard</Button>
                                     </MenuItem>
                                     <MenuItem onClick={handleCloseNavMenu}>
-                                        <Button style={noActive} onClick={logout}  >Logout</Button>
+                                        <Button style={noActive2} onClick={logout}  >Logout</Button>
                                     </MenuItem>
                                 </Box>
                                 :

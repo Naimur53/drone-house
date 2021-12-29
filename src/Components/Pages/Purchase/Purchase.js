@@ -10,7 +10,8 @@ import { NavLink } from 'react-router-dom';
 const Purchase = () => {
     const [data, setData] = useState({});
     const [update, setUpdate] = useState(false);
-    const [increase, setIncrease] = useState();
+    const [isDisabled, setIsDisabled] = useState(false);
+    const [increase, setIncrease] = useState(0);
     const { _id } = useParams();
     const { user } = useAuth();
     const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm();
@@ -36,6 +37,7 @@ const Purchase = () => {
     }, [watch('quantity')])
 
     const onSubmit = orderInfo => {
+        setIsDisabled(true)
         orderInfo['img'] = data.img;
         orderInfo['itemId'] = data._id;
         orderInfo['name'] = data.name;
@@ -91,7 +93,7 @@ const Purchase = () => {
 
                     </Grid>
                 </Grid>
-                <Grid item sm={12} md={4}>
+                <Grid item xs={12} md={4}>
                     {data.name && <form className='shadow-lg flex flex-col justify-center items-center py-4' onSubmit={handleSubmit(onSubmit)}>
                         <Typography className='font-poppins' variant="h5" gutterBottom>Fill The From</Typography>
                         <TextField
@@ -151,7 +153,7 @@ const Purchase = () => {
                         {
                             errors.address && <Typography variant="body1" color='error'>*Address required</Typography>
                         }
-                        <Button type='submit' disabled={update} className='hover:border-gray-400 hover:text-gray-500' sx={{ color: 'black', borderColor: 'black', width: '75%', m: 1 }} variant='outlined' color='info'>Add To Orders</Button>
+                        <Button type='submit' disabled={update || isDisabled} className='hover:border-gray-400 hover:text-gray-500' sx={{ color: 'black', borderColor: 'black', width: '75%', m: 1 }} variant='outlined' color='info'>Add To Orders</Button>
                     </form>}
                 </Grid>
 
