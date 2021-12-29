@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
+import useAuth from '../../../hooks/useAuth';
+import { Button } from '@mui/material'
+import CircularProgress from '@mui/material/CircularProgress';
 
-const CheckoutForm = ({ price }) => {
+
+const CheckoutForm = ({ price, clientSecret }) => {
+    const { user } = useAuth()
     const notify = (message) => toast.error(message);
     const success = (message) => toast.success(message);
+    const [payStatus, setPayStatus] = useState(false)
+
     const stripe = useStripe();
     const elements = useElements();
     const handleSubmit = async (event) => {
@@ -19,6 +26,7 @@ const CheckoutForm = ({ price }) => {
         }
 
         // Use your card Element with other Stripe.js APIs
+        setPayStatus(true)
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
             card,
@@ -27,11 +35,35 @@ const CheckoutForm = ({ price }) => {
         if (error) {
             console.log('[error]', error);
             notify(error.message)
+            setPayStatus(false);
 
         } else {
-            console.log('[PaymentMethod]', paymentMethod);
-            success('Payment Done')
+            setPayStatus('processing');
+
         }
+        console.log(user);
+        const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: user.displayName,
+                        email: user.email
+                    },
+                },
+            },
+        );
+        if (intentError) {
+            notify(intentError.message);
+            setPayStatus(false);
+        }
+        else {
+            success('Success fully payment done')
+            console.log('[PaymentMethod]', paymentIntent);
+            setPayStatus("success");
+        }
+
     };
     return (
         <div className='text-center'>
@@ -53,9 +85,14 @@ const CheckoutForm = ({ price }) => {
                         },
                     }}
                 />
-                <button type="submit" disabled={!stripe}>
-                    Pay {price}
-                </button>
+                {
+                    payStatus === true ? <Button className='hover:border-gray-400 bg-rose-600 hover:text-gray-500 w-full' sx={{ mt: 2, color: 'black', border: '1px solid', borderColor: 'black' }}   >
+                        <CircularProgress sx={{ width: "20px", height: '20px', mr: 2 }} size="30"></CircularProgress>
+                        Pay ${price}
+                    </Button> : <Button className='hover:border-gray-400  hover:text-gray-500 w-full' sx={{ mt: 2, color: 'black', border: '1px solid', borderColor: 'black' }} type="submit" disabled={!stripe || payStatus === 'success'}>
+                        Pay ${price}
+                    </Button>
+                }
             </form>
         </div>
     );

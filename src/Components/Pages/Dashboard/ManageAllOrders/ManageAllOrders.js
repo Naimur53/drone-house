@@ -55,9 +55,9 @@ const ManageAllOrders = () => {
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
-                                    {data.itemName}
+                                    {data.name}
                                 </TableCell>
-                                <TableCell>{data.name}</TableCell>
+                                <TableCell>{data.userName}</TableCell>
                                 <TableCell>{data.address}</TableCell>
                                 <TableCell>{data.status}</TableCell>
                                 <TableCell>

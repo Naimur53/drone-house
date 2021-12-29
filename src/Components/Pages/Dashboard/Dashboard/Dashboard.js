@@ -37,6 +37,8 @@ import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 import ManageProducts from '../ManageProducts/ManageProducts';
 import AddProduct from '../AddProduct/AddProduct';
 import Pay from '../Pay/Pay';
+import OverView from '../OverView/OverView';
+import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 const drawerWidth = 240;
 
 function Dashboard(props) {
@@ -78,6 +80,12 @@ function Dashboard(props) {
                 }
                 {
                     admin && <Box>
+                        <ListItem component={NavLink} activeStyle={{ "color": 'red' }} to={`${url}/overview`} button >
+                            <ListItemIcon>
+                                <ManageSearchIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={'Over view'} />
+                        </ListItem>
                         <ListItem component={NavLink} activeStyle={{ "color": 'red' }} to={`${url}/makeAdmin`} button >
                             <ListItemIcon>
                                 <AdminPanelSettingsIcon />
@@ -184,7 +192,7 @@ function Dashboard(props) {
                 <Switch>
                     <Route exact path={path}>
                         {
-                            admin ? <ManageAllOrders></ManageAllOrders> : <MyOrders></MyOrders>
+                            admin ? <OverView></OverView> : <MyOrders></MyOrders>
                         }
                     </Route>
                     <Route path={`${path}/pay`}>
@@ -198,6 +206,9 @@ function Dashboard(props) {
                     </Route>
                     <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/overview`}>
+                        <OverView></OverView>
                     </AdminRoute>
                     <AdminRoute path={`${path}/manageAllOrders`}>
                         <ManageAllOrders></ManageAllOrders>

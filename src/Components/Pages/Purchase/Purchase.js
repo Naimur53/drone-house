@@ -42,6 +42,7 @@ const Purchase = () => {
         orderInfo['status'] = 'Pending';
         orderInfo['isPaid'] = 'unPaid';
         orderInfo['total'] = increase;
+        orderInfo['quantity'] = parseInt(orderInfo.quantity);
 
         console.log(orderInfo);
 
@@ -98,7 +99,7 @@ const Purchase = () => {
                         <TextField
                             sx={{ width: '75%', my: 2 }}
                             label="Your Name"
-                            {...register("name", { required: true })}
+                            {...register("userName", { required: true })}
                             defaultValue={user.displayName}
                             color="warning"
                             InputProps={{
