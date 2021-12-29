@@ -6,7 +6,7 @@ import icon3 from '../../../media/icons/i-3.svg'
 import icon4 from '../../../media/icons/i-4.svg'
 const DroneUse = () => {
     return (
-        <div className='mt-24 mb-32'>
+        <div data-aos="fade-up" className='mt-24 mb-32'>
             <Container>
                 <div className='text-center flex items-center flex-col my-20'>
                     <h1 className='text-5xl font-poppins text-gray-700 mb-3'>

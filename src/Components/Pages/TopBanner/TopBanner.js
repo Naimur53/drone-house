@@ -9,7 +9,8 @@ const TopBanner = () => {
     return (
         <div className='relative filter hue-rotate-180 mb-5'>
             <div className='banner-container h-screen'>
-                <video src={fottage} autoPlay muted loop>
+                <video autoPlay muted loop>
+                    <source src={fottage} type="video/mp4" />
                 </video>
             </div>
             <Container className='absolute top-0 left-0 bottom-0 right-0' sx={{ py: 5 }}>

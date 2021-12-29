@@ -12,7 +12,7 @@ import './ServiceCard.css'
 const ServiceCard = props => {
     const { name, img, description, price, _id } = props.data;
     return (
-        <Grid item xs={12} md={props.layout}>
+        <Grid data-aos="fade-up" item xs={12} md={props.layout}>
             <Card className='card-main-wrap' sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }} >
                 <div className='relative '>
                     <CardMedia

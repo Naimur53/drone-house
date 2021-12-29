@@ -9,7 +9,7 @@ import IconSupport from '../../SvgIcons/IconSupport';
 import IconWorks from '../../SvgIcons/IconWorks';
 const InterestingData = () => {
     return (
-        <div className='interesting-wrapper mt-20 py-10'>
+        <div data-aos="fade-up" className='interesting-wrapper mt-20 py-10'>
             <Container>
                 <div className='text-center font-poppins pt-10 pb-5 mb-5'>
                     <h1 className='text-3xl text-white mb-2 '>We have most interesting client and Services over this year</h1>
