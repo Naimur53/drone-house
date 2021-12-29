@@ -4,6 +4,7 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import useAuth from '../../../hooks/useAuth';
 import { Button } from '@mui/material'
 import CircularProgress from '@mui/material/CircularProgress';
+import axios from 'axios';
 
 
 const CheckoutForm = ({ price, clientSecret }) => {
@@ -60,8 +61,14 @@ const CheckoutForm = ({ price, clientSecret }) => {
         }
         else {
             success('Success fully payment done')
-            console.log('[PaymentMethod]', paymentIntent);
+            console.log('[PaymentMethod]', paymentMethod);
             setPayStatus("success");
+            axios.put(`http://localhost:5000/payment/${user.email}`, {
+                amount: paymentIntent.amount,
+                client_secret: paymentIntent.client_secret.slice('_secret')[0],
+                payment_method_types: paymentIntent?.payment_method_types[0],
+                last4: paymentMethod?.card?.last4
+            })
         }
 
     };

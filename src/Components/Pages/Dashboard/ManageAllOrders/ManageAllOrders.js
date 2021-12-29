@@ -9,7 +9,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-const ManageAllOrders = () => {
+const ManageAllOrders = (props) => {
     const [allOrders, setAllOrders] = useState([]);
     const [action, setAction] = useState(0);
     useEffect(() => {
@@ -35,10 +35,39 @@ const ManageAllOrders = () => {
                 }
             })
     }
+    if (props.preview) {
+        return (
+            <TableContainer component={Paper}>
+                <Table aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Item name</TableCell>
+                            <TableCell >Name of customer</TableCell>
+                            <TableCell >Status</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {
+                            allOrders.slice(0, 5).map(data => <TableRow
+                                key={data._id}
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                            >
+                                <TableCell component="th" scope="row">
+                                    {data.name}
+                                </TableCell>
+                                <TableCell>{data.userName}</TableCell>
+                                <TableCell>{data.status}</TableCell>
+                            </TableRow>)
+                        }
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        )
+    }
     return (
         <div>
             <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>
                             <TableCell>Item name</TableCell>
@@ -59,13 +88,13 @@ const ManageAllOrders = () => {
                                 </TableCell>
                                 <TableCell>{data.userName}</TableCell>
                                 <TableCell>{data.address}</TableCell>
-                                <TableCell>{data.status}</TableCell>
+                                <TableCell>{data.status}, <span>{data?.isPaid.amount ? 'Paid' : 'UnPaid'}</span></TableCell>
                                 <TableCell>
+                                    <Button sx={{ mr: 1 }} onClick={() => handleDelete(data._id)} variant='outlined' size='small' color='error'>Delete</Button>
                                     {
-                                        data.status === 'Pending' && <Button onClick={() => handleUpdate(data._id)} variant='text' size='small' color='success'>update Shipped</Button>
+                                        data.status === 'Pending' && <Button onClick={() => handleUpdate(data._id)} size='small' variant='outlined' color='success'>update Shipped</Button>
                                     }
 
-                                    <Button onClick={() => handleDelete(data._id)} variant='outlined' size='small' color='error'>Delete</Button>
                                 </TableCell>
                             </TableRow>)
                         }

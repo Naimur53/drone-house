@@ -25,9 +25,9 @@ const ManageProducts = () => {
     }
     return (
         <div>
-            <Grid container spacing={4}>
+            <Grid container spacing={2}>
                 {
-                    services.map(data => <ServiceCard key={data._id} handleDelete={handleDelete} layout='4' admin data={data}></ServiceCard>)
+                    services.map(data => <ServiceCard key={data._id} handleDelete={handleDelete} layout='3' admin data={data}></ServiceCard>)
                 }
             </Grid>
         </div>

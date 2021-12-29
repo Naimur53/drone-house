@@ -7,14 +7,14 @@ const MyOrdersCard = props => {
 
     return (
         <Grid item sm={12} md={6}>
-            <Card sx={{ display: 'flex', height: '100%' }}>
+            <Card sx={{ display: 'flex', height: '100%', justifyContent: 'center', alignItems: 'center', flexDirection: { xs: 'column', md: 'row' } }}>
                 <CardMedia
                     component="img"
-                    sx={{ width: "45%" }}
+                    sx={{ width: { xs: '100%', md: '45%' } }}
                     image={img}
                     alt="Live from space album cover"
                 />
-                <Box sx={{ display: 'flex', flexDirection: 'column', width: '55%' }}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', width: { xs: '100%', md: '55%' } }}>
                     <CardContent >
                         <Typography className='font-poppins' component="div" variant="h5">
                             {name}
@@ -29,13 +29,15 @@ const MyOrdersCard = props => {
                             Address: <span className='text-gray-500 mt-4'>{address}</span>
                         </Typography>
                         <Typography className='font-poppins' variant="subtitle1" component="div">
-                            status: <span className='text-gray-500 '>{status}, {isPaid}</span>
+                            status: <span className='text-gray-500 '>{status}, {isPaid.amount ? 'Paid' : "unPaid"}</span>
                         </Typography>
-                        <Button className='hover:border-gray-400  hover:text-gray-500 w-full' sx={{ mt: 2, color: 'black', border: '1px solid', borderColor: 'black' }} onClick={() => props.handleDelete(_id)} size="small" variant='outline' color="error">Cancel order</Button>
+                        {
+                            !isPaid?.amount && <Button className='hover:border-gray-400   hover:text-gray-500 w-full' sx={{ mt: 2, color: 'black', border: '1px solid', borderColor: 'black' }} onClick={() => props.handleDelete(_id)} size="small" variant='outline' color="error">Cancel order</Button>
+                        }
                     </CardContent>
                 </Box>
             </Card>
-        </Grid>
+        </Grid >
     );
 };
 

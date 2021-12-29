@@ -27,8 +27,8 @@ const Login = () => {
         <Container>
             <Grid container spacing={2}>
                 <Grid item sx={{ mt: 8 }} xs={12} md={6}>
-                    <Typography variant="body1" gutterBottom>Login yourself</Typography>
-                    <form onSubmit={handleLoginSubmit}>
+                    <h2 className='text-3xl my-4 font-poppins'>Login yourself</h2>
+                    <form className='text-center' onSubmit={handleLoginSubmit}>
                         <TextField
                             sx={{ width: '75%', m: 1 }}
                             id="standard-basic"
@@ -55,17 +55,17 @@ const Login = () => {
                             to="/register">
                             <Button variant="text">New User? Please Register</Button>
                         </NavLink>
-                        {user?.email && <Alert severity="success">Login successfully!</Alert>}
-                        {authError && <Alert severity="error">{authError}</Alert>}
-                    </form>
-                    <Button onClick={() => signInWithGoogle(location, history)} variant="contained">Google Sign In</Button>
-                    <br />
-                    {isLoading && <CircularProgress />}
 
+                    </form>
+                    <div className="text-center">
+                        <Button onClick={() => signInWithGoogle(location, history)} variant="contained">Google Sign In</Button>
+                    </div>
+                    {authError && <Alert severity="error">{authError}</Alert>}
                 </Grid>
                 <Grid item sx={{ mt: 8 }} xs={12} md={6}>
                     <img style={{ width: '100%' }} src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.png" alt="" />
                 </Grid>
+
             </Grid>
         </Container>
     );

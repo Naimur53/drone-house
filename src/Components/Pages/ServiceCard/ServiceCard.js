@@ -18,7 +18,7 @@ const ServiceCard = props => {
                     <CardMedia
                         sx={{ width: '100%', }}
                         component="img"
-                        alt="green iguana"
+                        alt="Product img"
                         image={img}
                     />
                     <div className="absolute card-style top-0 left-0 bottom-0 right-0 z-10"></div>

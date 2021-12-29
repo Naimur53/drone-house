@@ -11,6 +11,7 @@ const MyOrders = () => {
         axios.get(`https://enigmatic-headland-64217.herokuapp.com/orders?email=${user.email}`)
             .then(result => setOrders(result.data))
     }, []);
+    console.log(orders);
     const handleDelete = id => {
         console.log(id);
         if (window.confirm('Are you sure')) {
@@ -30,7 +31,7 @@ const MyOrders = () => {
     return (
         <div>
             <Typography variant="h4" sx={{ mb: 3 }}>My orders</Typography>
-            <Grid container spacing={4}>
+            <Grid sx={{ justifyContent: { xs: 'center', md: 'flex-start' } }} container spacing={4}>
                 {
                     orders.length ? orders.map(data => <MyOrdersCard key={data._id} handleDelete={handleDelete} data={data}></MyOrdersCard>) : <Grid item xs={12}><h2>please purchase Drone</h2></Grid>
                 }

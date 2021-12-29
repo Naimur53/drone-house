@@ -44,7 +44,7 @@ const drawerWidth = 240;
 function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const { logout, admin } = useAuth();
+    const { logout, admin, user } = useAuth();
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -53,7 +53,14 @@ function Dashboard(props) {
     let { path, url } = useRouteMatch();
     const drawer = (
         <div>
-            <Toolbar />
+            <div className='flex items-center  flex-col'>
+                <img className='rounded-full w-1/2' src={user.photoURL} alt="" />
+                <h2 className='font-poppins text-lg my-3'>{user.displayName}</h2>
+            </div>
+            <Box sx={{ display: { xs: 'block', md: 'none' } }} >
+                <NavLink style={{ textDecoration: 'none', color: 'gray' }} to="/home"><Button color="inherit">Home</Button></NavLink>
+                <NavLink style={{ textDecoration: 'none', color: 'gray' }} to="/explore"><Button color="inherit">Explore</Button></NavLink>
+            </Box>
             <Divider />
             <List>
                 {
@@ -76,6 +83,7 @@ function Dashboard(props) {
                             </ListItemIcon>
                             <ListItemText primary={'Review'} />
                         </ListItem>
+
                     </Box>
                 }
                 {
@@ -124,18 +132,24 @@ function Dashboard(props) {
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
-
+    const navStyle = { backgroundColor: 'white', color: 'black', boxShadow: ' 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)' }
     return (
         <Box sx={{ display: 'flex', }}>
-            <CssBaseline />
             <AppBar
                 position="fixed"
+                style={navStyle}
                 sx={{
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
                 }}
             >
                 <Toolbar >
+
+                    <Typography variant='h5' sx={{ flexGrow: 1 }}><span className='main_title'>MPQ</span> Drone</Typography>
+                    <Typography sx={{ display: { xs: 'none', md: 'block' }, }} >
+                        <NavLink style={{ textDecoration: 'none', color: 'gray' }} to="/home"><Button color="inherit">Home</Button></NavLink>
+                        <NavLink style={{ textDecoration: 'none', color: 'gray' }} to="/explore"><Button color="inherit">Explore</Button></NavLink>
+                    </Typography>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -145,11 +159,6 @@ function Dashboard(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant='h5' sx={{ flexGrow: 1 }}>Drone House</Typography>
-                    <Typography >
-                        <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/home"><Button color="inherit">Home</Button></NavLink>
-                        <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/explore"><Button color="inherit">Explore</Button></NavLink>
-                    </Typography>
                 </Toolbar>
             </AppBar>
             <Box

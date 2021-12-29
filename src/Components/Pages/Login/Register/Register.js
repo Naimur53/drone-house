@@ -1,4 +1,4 @@
-import { Container, Typography, TextField, Button, CircularProgress, Alert, Grid } from '@mui/material';
+import { Container, Typography, TextField, Button, CircularProgress, Alert, Grid, Box } from '@mui/material';
 import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom'
 import useAuth from '../../../../hooks/useAuth';
@@ -26,57 +26,58 @@ const Register = () => {
     }
     return (
 
-        <Container>
+        <Container sx={{ mt: 5 }}>
             {user?.email && <Alert severity="success">User Created successfully!</Alert>}
-            <Typography variant="h2" sx={{ mt: 3, textAlign: "center" }}>Register Yourself</Typography>
-            <Grid container spacing={2}>
-                <Grid sx={{ mt: 5 }} item xs={12} md={6}>
-                    <img style={{ width: '100%' }} src="https://clicksgenie.com/Themes/clicksgenie/landing/images/hero-17-img.png" alt="" />
+            <Grid container spacing={4}>
+                <Grid className="flex justify-center" sx={{ mt: 5 }} item xs={12} md={6}>
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" alt="" />
                 </Grid>
-                <Grid item sx={{ mt: 8, boxShadow: 1, pb: 3 }} xs={12} md={6}>
-                    <Typography variant="h5" gutterBottom>Register From</Typography>
-                    {!isLoading && <form onSubmit={handleRegisterSubmit}>
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            label="Your Name"
-                            name="name"
-                            required
-                            onBlur={handleOnBlur}
-                            variant="standard" />
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            label="Your Email"
-                            name="email"
-                            required
-                            type="email"
-                            onBlur={handleOnBlur}
-                            variant="standard" />
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            label="Your Password"
-                            type="password"
-                            name="password"
-                            required
-                            onBlur={handleOnBlur}
-                            variant="standard" />
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            label="ReType Your Password"
-                            type="password"
-                            name="password2"
-                            required
-                            onBlur={handleOnBlur}
-                            variant="standard" />
+                <Grid item sx={{ mt: 8, pb: 3 }} xs={12} md={6}>
+                    <Box sx={{ boxShadow: 2, pb: 3 }}>
+                        <h2 className='font-poppins text-3xl text-center pt-5'>Register From</h2>
+                        {!isLoading && <form className='text-center px-5' onSubmit={handleRegisterSubmit}>
+                            <TextField
+                                sx={{ width: '100%', m: 1 }}
+                                label="Your Name"
+                                name="name"
+                                required
+                                onBlur={handleOnBlur}
+                                variant="standard" />
+                            <TextField
+                                sx={{ width: '100%', m: 1 }}
+                                label="Your Email"
+                                name="email"
+                                required
+                                type="email"
+                                onBlur={handleOnBlur}
+                                variant="standard" />
+                            <TextField
+                                sx={{ width: '100%', m: 1 }}
+                                label="Your Password"
+                                type="password"
+                                name="password"
+                                required
+                                onBlur={handleOnBlur}
+                                variant="standard" />
+                            <TextField
+                                sx={{ width: '100%', m: 1 }}
+                                label="ReType Your Password"
+                                type="password"
+                                name="password2"
+                                required
+                                onBlur={handleOnBlur}
+                                variant="standard" />
 
-                        <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Register</Button>
-                        <NavLink
-                            style={{ textDecoration: 'none' }}
-                            to="/login">
-                            <Button variant="text">Already Registered? Please Login</Button>
-                        </NavLink>
-                    </form>}
-                    {isLoading && <CircularProgress />}
-                    {authError && <Alert severity="error">{authError}</Alert>}
+                            <Button sx={{ width: '100%', m: 1 }} type="submit" variant="contained">Register</Button>
+                            <NavLink
+                                style={{ textDecoration: 'none' }}
+                                to="/login">
+                                <Button variant="text">Already Registered? Please Login</Button>
+                            </NavLink>
+                        </form>}
+                        {isLoading && <CircularProgress />}
+                        {authError && <Alert severity="error">{authError}</Alert>}
+                    </Box>
                 </Grid>
             </Grid>
         </Container>

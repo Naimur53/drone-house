@@ -24,15 +24,15 @@ export const createData = (data) => {
     let paid = 0;
     let unpaid = 0;
     let pending = 0;
+
     data.forEach(element => {
         if (element.isPaid === 'unPaid') {
             unpaid++;
         }
-        else if (element.isPaid === 'paid') {
+        else if (element.isPaid.amount) {
             paid++;
 
         }
-
         if (element.status === "Pending") {
             pending++;
         }
