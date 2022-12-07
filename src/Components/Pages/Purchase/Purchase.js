@@ -17,7 +17,7 @@ const Purchase = () => {
     const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm();
 
     useEffect(() => {
-        axios.get(`https://enigmatic-headland-64217.herokuapp.com/drones/${_id}`).then(result => {
+        axios.get(`https://drone-house-server-production.up.railway.app/drones/${_id}`).then(result => {
             setData(result.data)
             setIncrease(data.price)
         })
@@ -46,7 +46,7 @@ const Purchase = () => {
         orderInfo['total'] = increase;
         orderInfo['quantity'] = parseInt(orderInfo.quantity);
 
-        axios.post('https://enigmatic-headland-64217.herokuapp.com/purchase', orderInfo)
+        axios.post('https://drone-house-server-production.up.railway.app/purchase', orderInfo)
             .then(res => {
                 if (res.data?.insertedId) {
                     setUpdate(true);

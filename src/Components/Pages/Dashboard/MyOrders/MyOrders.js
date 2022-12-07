@@ -8,14 +8,14 @@ const MyOrders = () => {
     const { user } = useAuth();
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        axios.get(`https://enigmatic-headland-64217.herokuapp.com/orders?email=${user.email}`)
+        axios.get(`https://drone-house-server-production.up.railway.app/orders?email=${user.email}`)
             .then(result => setOrders(result.data))
     }, [user.email]);
     console.log(orders);
     const handleDelete = id => {
         console.log(id);
         if (window.confirm('Are you sure')) {
-            axios.delete(`https://enigmatic-headland-64217.herokuapp.com/orders/${id}`)
+            axios.delete(`https://drone-house-server-production.up.railway.app/orders/${id}`)
                 .then(res => {
                     console.log(res);
                     if (res.data?.deletedCount) {

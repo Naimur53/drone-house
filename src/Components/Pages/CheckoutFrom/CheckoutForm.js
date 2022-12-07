@@ -61,7 +61,7 @@ const CheckoutForm = ({ price, clientSecret }) => {
         else {
             success('Success fully payment done')
             setPayStatus("success");
-            axios.put(`https://enigmatic-headland-64217.herokuapp.com/payment/${user.email}`, {
+            axios.put(`https://drone-house-server-production.up.railway.app/payment/${user.email}`, {
                 amount: paymentIntent.amount,
                 client_secret: paymentIntent.client_secret.slice('_secret')[0],
                 payment_method_types: paymentIntent?.payment_method_types[0],

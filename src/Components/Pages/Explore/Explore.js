@@ -19,7 +19,7 @@ const Explore = props => {
     }
     useEffect(() => {
         window.scrollTo(0, 0);
-        axios.get('https://enigmatic-headland-64217.herokuapp.com/drones')
+        axios.get('https://drone-house-server-production.up.railway.app/drones')
             .then(result => setDrones(result.data));
     }, []);
     return (

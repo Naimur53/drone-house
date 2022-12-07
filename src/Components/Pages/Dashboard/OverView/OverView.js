@@ -10,7 +10,7 @@ const OverView = () => {
     const [monthOrdersInfo, setMonthOrdersInfo] = useState([]);
     useEffect(() => {
         window.scrollTo(0, 0);
-        axios.get('https://enigmatic-headland-64217.herokuapp.com/orders')
+        axios.get('https://drone-house-server-production.up.railway.app/orders')
             .then(res => setData(res.data));
     }, []);
     useEffect(() => {

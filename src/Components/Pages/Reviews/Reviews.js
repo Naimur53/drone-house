@@ -10,7 +10,7 @@ import "swiper/swiper-bundle.min.css";
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        axios.get('https://enigmatic-headland-64217.herokuapp.com/reviews')
+        axios.get('https://drone-house-server-production.up.railway.app/reviews')
             .then(res => setReviews(res.data));
     }, [])
     SwiperCore.use([Autoplay, EffectCoverflow, Pagination, Navigation]);

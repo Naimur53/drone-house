@@ -15,7 +15,7 @@ const AddReviews = () => {
         reviewInfo['img'] = user.photoURL;
         reviewInfo.time = new Date().toLocaleDateString()
         reviewInfo['ratingValue'] = ratingValue;
-        axios.post('https://enigmatic-headland-64217.herokuapp.com/reviews', reviewInfo)
+        axios.post('https://drone-house-server-production.up.railway.app/reviews', reviewInfo)
             .then(res => {
                 if (res.data?.insertedId) {
                     setUpdate(true);

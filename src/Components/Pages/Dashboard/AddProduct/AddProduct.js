@@ -13,7 +13,7 @@ const AddProduct = () => {
     }
     const onSubmit = serviceInfo => {
         console.log(serviceInfo);
-        axios.post('https://enigmatic-headland-64217.herokuapp.com/drones', serviceInfo)
+        axios.post('https://drone-house-server-production.up.railway.app/drones', serviceInfo)
             .then(res => {
                 console.log(res);
                 if (res.data.insertedId) {

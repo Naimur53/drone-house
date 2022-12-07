@@ -13,12 +13,12 @@ const ManageAllOrders = (props) => {
     const [allOrders, setAllOrders] = useState([]);
     const [action, setAction] = useState(0);
     useEffect(() => {
-        axios.get('https://enigmatic-headland-64217.herokuapp.com/orders')
+        axios.get('https://drone-house-server-production.up.railway.app/orders')
             .then(res => setAllOrders(res.data));
     }, [action]);
     const handleDelete = id => {
         if (window.confirm("Are you sure to delete this item")) {
-            axios.delete(`https://enigmatic-headland-64217.herokuapp.com/orders/${id}`)
+            axios.delete(`https://drone-house-server-production.up.railway.app/orders/${id}`)
                 .then(res => {
                     if (res.data.deletedCount) {
                         setAction(action + 1);
@@ -28,7 +28,7 @@ const ManageAllOrders = (props) => {
 
     }
     const handleUpdate = id => {
-        axios.put(`https://enigmatic-headland-64217.herokuapp.com/orders/${id}`)
+        axios.put(`https://drone-house-server-production.up.railway.app/orders/${id}`)
             .then(res => {
                 if (res.data.modifiedCount) {
                     setAction(action + 1);

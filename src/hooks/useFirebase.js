@@ -40,7 +40,7 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     }
     const saveUser = data => {
-        axios.post('https://enigmatic-headland-64217.herokuapp.com/user', data)
+        axios.post('https://drone-house-server-production.up.railway.app/user', data)
     }
 
     const loginUser = (email, password, location, history) => {
@@ -95,7 +95,7 @@ const useFirebase = () => {
         }).finally(() => setIsLoading(false));
     }
     useEffect(() => {
-        axios.get(`https://enigmatic-headland-64217.herokuapp.com/user/${user.email}`)
+        axios.get(`https://drone-house-server-production.up.railway.app/user/${user.email}`)
             .then(res => {
                 setAdmin(res.data.admin);
             })

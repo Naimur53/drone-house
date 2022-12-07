@@ -8,7 +8,7 @@ const MakeAdmin = () => {
     const [success, setSuccess] = useState(false);
     const onSubmit = adminEmail => {
         console.log(adminEmail);
-        axios.put('https://enigmatic-headland-64217.herokuapp.com/user/admin', adminEmail)
+        axios.put('https://drone-house-server-production.up.railway.app/user/admin', adminEmail)
             .then(res => {
                 console.log(res);
                 if (res.data.modifiedCount) {

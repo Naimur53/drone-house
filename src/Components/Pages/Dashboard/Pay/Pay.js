@@ -13,7 +13,7 @@ const Pay = () => {
     const [price, setPrice] = useState(0);
     const [clientSecret, setClientSecret] = useState('');
     useEffect(() => {
-        axios.get(`https://enigmatic-headland-64217.herokuapp.com/orders?email=${user.email}`)
+        axios.get(`https://drone-house-server-production.up.railway.app/orders?email=${user.email}`)
             .then(result => {
                 let totalPrice = 0;
                 result?.data.filter(element => element.isPaid === 'unPaid').forEach(element => {
@@ -24,7 +24,7 @@ const Pay = () => {
             })
     }, []);
     useEffect(() => {
-        axios.post('https://enigmatic-headland-64217.herokuapp.com/create-payment-intent', { price })
+        axios.post('https://drone-house-server-production.up.railway.app/create-payment-intent', { price })
             .then(res => setClientSecret(res?.data?.clientSecret))
     }, [price])
     if (load) {

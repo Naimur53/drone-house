@@ -17,7 +17,7 @@ const Services = props => {
         }
     }
     useEffect(() => {
-        axios.get('https://enigmatic-headland-64217.herokuapp.com/drones?limit=8')
+        axios.get('https://drone-house-server-production.up.railway.app/drones?limit=8')
             .then(result => setDrones(result.data));
     }, []);
     return (
