@@ -1,16 +1,15 @@
-.expo-wrapper{
-    height: 80vh; 
-    background-image: url('https://i.ibb.co/R4xk8MM/inner-image-02.jpg');
-    background-size: cover; 
+.expo-wrapper {
+  height: 80vh;
+  background-image: url("../../../media//inner_image_02.jpg");
+  background-size: cover;
 }
-.expo-wrapper::before{
-    content: "";
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.292);
-
+.expo-wrapper::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.292);
 }
